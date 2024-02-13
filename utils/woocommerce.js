@@ -1,3 +1,4 @@
+// utils/woocommerce.js
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 const api = new WooCommerceRestApi({
@@ -8,6 +9,6 @@ const api = new WooCommerceRestApi({
 });
 
 export const getAllProducts = async () => {
-  const { data } = await api.get("products");
+  const { data } = await api.get("products", { per_page: 10 }); // Adjust per_page as needed
   return data;
 };

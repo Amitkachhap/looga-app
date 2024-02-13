@@ -1,3 +1,4 @@
+// pages/index.js
 import { getAllProducts } from "../utils/woocommerce";
 
 export default function Home({ products }) {
