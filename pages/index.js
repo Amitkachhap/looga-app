@@ -1,13 +1,18 @@
 // pages/index.js
+import { useRouter } from 'next/router';
 import { getAllProducts } from "../utils/woocommerce";
 
-export default function Home({ products }) {
+function Home({ products }) {
+  const router = useRouter();
+
   return (
     <div>
       <h1>WooCommerce Products</h1>
       <ul>
         {products.map((product) => (
-          <li key={product.id}>{product.name}</li>
+          <li key={product.id} onClick={() => router.push(`/products/${product.id}`)}>
+            {product.name}
+          </li>
         ))}
       </ul>
     </div>
@@ -22,3 +27,5 @@ export async function getStaticProps() {
     },
   };
 }
+
+export default Home;
